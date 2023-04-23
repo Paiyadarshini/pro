@@ -1,0 +1,55 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="/admin/base_sidebar::layout(~{::section})">
+<head>
+<meta charset="UTF-8">
+<title>Show Train</title>
+</head>
+<body>
+	<section>
+		<div class="container pt-4">
+			<div class="card col-11" style="left:136px">
+				<div class="card-body">
+					<table class="table table-bordered bg-success ">
+						<thead>
+							<tr>
+								<th scope="col">Train Id</th>
+								<th scope="col">Train Name</th>
+								<th scope="col">Train From</th>
+								<th scope="col">Train To</th>
+								<th scope="col">Train From Time</th>
+								<th scope="col">Train To Time</th>
+								<th scope="col">Ticket Price</th>
+								<th scope="col">Delete</th>
+								<th scope="col">Update</th>
+								
+							</tr>
+						</thead>
+						<tbody>
+                           <thead class="thead-dark text-light">
+		                   <tr th:each="trainMaster:${viewMasters}">
+		                   <td th:text="${trainMaster.trainId}">Train Id</td>
+		                   <td th:text="${trainMaster.trainName}">Train Name</td>
+		                    <td th:text="${trainMaster.trainFrom}">Train From</td>
+		                    <td th:text="${trainMaster.trainTo}">Train To</td>
+		                    <td th:text="${trainMaster.trainFromTiming}">Train From time</td>
+		                    <td th:text="${trainMaster.trainToTime}">Train To Time</td>
+		                    <td th:text="${trainMaster.ticketPrice}">Ticket Price</td>
+		                    
+		                     <td>
+		                     <a th:href="@{/admin/delete/{trainId}(trainId=${trainMaster.trainId})}" > Delete</a>
+		                    </td> 
+		                    <td>
+		                     <a th:href="@{/admin/trainmaster/update/{trainId}(trainId=${trainMaster.trainId})}" > Update</a>
+		                    </td> 
+            
+		                    </tr>
+		                 </tbody>
+					</table>
+				</div>
+			</div>
+
+		</div>
+
+	</section>
+</body>
+</html>

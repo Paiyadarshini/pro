@@ -1,0 +1,59 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="base_login::layout(~{::section})">
+<head>
+<meta charset="UTF-8">
+<title>Registration Page</title>
+</head>
+<body>
+<section>
+		
+			<div class="card col-11 pt-2" style="left:40px">
+					<table class="table table-bordered bg-success ">
+						<thead>
+							<tr>
+							   <th scope="col">Train Id</th>
+								<th scope="col">Train Name</th>
+								<th scope="col">Ticket Price</th>
+								<th scope="col">Train From</th>
+								<th scope="col">Train To</th>
+								<th scope="col">Train From Time</th>
+								<th scope="col">Train To Time</th>
+								<th scope="col">No Of Stop</th>
+								<th scope="col">Schedule</th>
+								<th scope="col">Name</th>
+								<th scope="col">Address</th>
+								<th scope="col">Gender</th>
+								<th scope="col">Aadhar Number</th>
+								<th scope="col">Phone Number</th>
+								<th scope="col">Age</th>
+							</tr>
+						</thead>
+						<tbody>
+                           <thead class="thead-dark text-light">
+		                   <tr th:each="bookingTicket:${showBookingTicket}">
+		                   <td th:text="${bookingTicket.trainId}">Train Id</td>
+		                   <td th:text="${bookingTicket.trainName}">Train Name</td>
+		                    <td th:text="${bookingTicket.ticketPrice}">Ticket Price</td>
+		                    <td th:text="${bookingTicket.trainFrom}">Train From</td>
+		                    <td th:text="${bookingTicket.trainTo}">Train To</td>
+		                    <td th:text="${bookingTicket.trainFromTiming}">Train From time</td>
+		                    <td th:text="${bookingTicket.trainToTime}">Train To Time</td>
+		                    <td th:text="${bookingTicket.noOfStop}">No Of Stops</td>
+		                   <td th:text="${bookingTicket.schedule}">Schedule</td>
+		                   <td th:text="${bookingTicket.name}">Name</td>
+		                   <td th:text="${bookingTicket.address}">Address</td>
+		                   <td th:text="${bookingTicket.gender}">Gender</td>
+		                   <td th:text="${bookingTicket.aadharNumber}">Aadhar No</td>
+		                   <td th:text="${bookingTicket.phoneNumber}">Phone Number</td>
+		                   <td th:text="${bookingTicket.age}">Age</td>
+		                   </tr>
+		                 </tbody>
+                         
+					</table>
+				</div>
+			</div>
+
+		
+
+	</section>
+</body>
+</html>

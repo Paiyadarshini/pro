@@ -1,0 +1,51 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="/admin/base_sidebar::layout(~{::section})">
+<head>
+<meta charset="UTF-8">
+<title>Home Page</title>
+</head>
+
+<body class="train master">
+</body>
+<section>
+	<div class="container pt-4">
+		<div class="card col-11" style="left: 136px">
+			<div class="card">
+				<div class="card-body text-dark fw-bold"
+					style="background-color: #cbd7e2;">
+					<h4 class="text-center text-danger">No Of Stops Master</h4>
+
+					<!-- Start Of Message Alert-->
+					<div th:if="${session.message}" class="alert_field">
+						<div class="alert text-center py-1"
+							th:classappend="${'alert-'+session.message.type}" role="alert">
+							<span th:text="${session.message.content}"></span>
+						</div>
+						<th:block th:text="${#session.removeAttribute('message')}"></th:block>
+					</div>
+					<!-- End Of Message Alert-->
+
+					<form th:action="@{/admin/submit/noOfStop}" method="post">
+						<div class="row pt-4" style="margin-left: 290px;">
+							<div class="col-auto">
+								<label for="noOfStops" class="col-form-label">No Of
+									Stops</label>
+							</div>
+							<div class="col-4">
+								<input type="number" id="noOfStops" class="form-control"
+									name="noOfStops">
+							</div>
+						</div>
+						<div class="text-center pt-4 pb-4">
+							<button type="submit" class="btn btn-primary">Submit</button>
+							<button type="reset" class="btn btn-warning">Reset</button>
+							<a th:href="@{/admin/viewnoofstop}" class="btn btn-success">View</a>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+</body>
+</html>

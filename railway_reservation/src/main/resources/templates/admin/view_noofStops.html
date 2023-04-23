@@ -1,0 +1,42 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="/admin/base_sidebar::layout(~{::section})">
+<head>
+<meta charset="UTF-8">
+<title>Show Train</title>
+</head>
+<body>
+	<section>
+		<div class="container pt-4">
+			<div class="card col-11" style="left:136px">
+				<div class="card-body">
+					<table class="table table-bordered bg-success ">
+						<thead>
+							<tr>
+								<th scope="col">ID</th>
+								<th scope="col">No Of Stop</th>
+								<th scope="col">Update Action</th>	
+								<th scope="col">Delete Action</th>									
+							</tr>
+						</thead>
+						<tbody>
+                            <tr th:each="noOfStop:${listOfNoOfStops}">
+                              <td th:text="'NI'+${noOfStop.id}"></td>
+                              <td th:text="${noOfStop.noOfStops}"></td>
+                              <td>
+		                     <a th:href="@{/admin/noofstop/update/{id}(id=${noOfStop.id})}" > Update</a>
+		                    </td> 
+                              <td>
+		                     <a th:href="@{/admin/deletetrain/{id}(id=${noOfStop.id})}"> Delete</a>
+		                    </td> 
+                            </tr>
+		                 </tbody>
+					</table>
+				</div>
+			</div>
+
+
+		</div>
+
+	</section>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="base_login::layout(~{::section})">
+<head>
+<meta charset="UTF-8">
+<title>Registration Page</title>
+</head>
+<body>
+<section>
+		<div class="container pt-4">
+			<div class="card col-11" style="left: 60px">
+				<div class="card-body">
+					<table class="table table-bordered bg-success ">
+						<thead>
+							<tr>
+							   <th scope="col">Train Id</th>
+								<th scope="col">Train Name</th>
+								<th scope="col">Ticket Price</th>
+								<th scope="col">Train From</th>
+								<th scope="col">Train To</th>
+								<th scope="col">Train From Time</th>
+								<th scope="col">Train To Time</th>
+								<th scope="col">No Of Stop</th>
+								<th scope="col">Schedule</th>
+								<th scope="col">Book Ticket</th>
+							</tr>
+						</thead>
+						<tbody>
+                           <thead class="thead-dark text-light">
+		                   <tr th:each="addingTrains:${showAddingTrain}">
+		                   <td th:text="${addingTrains.trainId}">Train Id</td>
+		                   <td th:text="${addingTrains.trainName}">Train Name</td>
+		                    <td th:text="${addingTrains.ticketPrice}">Ticket Price</td>
+		                    <td th:text="${addingTrains.trainFrom}">Train From</td>
+		                    <td th:text="${addingTrains.trainTo}">Train To</td>
+		                    <td th:text="${addingTrains.trainFromTiming}">Train From time</td>
+		                    <td th:text="${addingTrains.trainToTime}">Train To Time</td>
+		                    <td th:text="${addingTrains.noOfStop}">No Of Stops</td>
+		                   <td th:text="${addingTrains.schedule}">Schedule</td> 
+		                   
+		                    <td>
+		                     <a th:href="@{/user/booktrain/{trainId}(trainId=${addingTrains.trainId})}" >Booking Ticket</a>
+		                    </td> 
+		                   </tr>
+		                 </tbody>
+					</table>
+				</div>
+			</div>
+
+		</div>
+
+	</section>
+</body>
+</html>

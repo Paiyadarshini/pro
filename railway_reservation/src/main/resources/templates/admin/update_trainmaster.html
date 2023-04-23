@@ -1,0 +1,94 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="/admin/base_sidebar::layout(~{::section})">
+<head>
+<meta charset="UTF-8">
+<title>Home Page</title>
+</head>
+
+<body class="train master">
+</body>
+<section>
+	<div class="container pt-4">
+		<div class="card col-11" style="left: 136px">
+			<div class="card">
+				<div class="card-body text-dark fw-bold"
+					style="background-color: #cbd7e2;">
+					<h4 class="text-center text-danger">Adding Trains</h4>
+					<div class="pt-3 col-12">
+						<div class="col-sm-10" style="margin-left: 81px;">
+							<form th:action="@{/admin/saveupdatetrainmaster}" method="post" th:object="${trainMaster}">
+                           <input type ="hidden" name="id" th:field="${trainMaster.trainId}"/>
+									
+									
+								<div class="row align-items-center">
+									<div class="col-3">
+										<label for="trainName" class="col-form-label">Train
+											Name</label>
+									</div>
+									<div class="col-3">
+									
+									<input type="text" id="trainName" class="form-control"
+											name="trainName" th:value="${trainMaster.trainName}">
+									
+										</div>
+									<div class="col-3">
+										<label for="ticketPrice" class="col-form-label">Ticket
+											Price</label>
+									</div>
+									<div class="col-3">
+										<input type="text" id="ticketPrice" class="form-control"
+											name="ticketPrice" th:value="${trainMaster.ticketPrice}">
+									</div>
+								</div>
+								<div class="row align-items-center pt-2">
+									<div class="col-3">
+										<label for="trainFrom" class="col-form-label">Train
+											From</label>
+									</div>
+									<div class="col-3">
+										<input type="text" id="trainFrom" class="form-control"
+											name="trainFrom" th:value="${trainMaster.trainFrom}">
+									</div>
+									<div class="col-3">
+										<label for="trainTo" class="col-form-label">Train To</label>
+									</div>
+									<div class="col-3">
+										<input type="text" id="trainTo" class="form-control"
+											name="trainTo" th:value="${trainMaster.trainTo}">
+									</div>
+								</div>
+								<div class="row align-items-center pt-2">
+									<div class="col-3">
+										<label for="trainFromTiming" class="col-form-label">Train
+											From Time</label>
+									</div>
+									<div class="col-3">
+										<input type="text" id="trainFromTiming" class="form-control"
+											name="trainFromTiming"
+											th:value="${trainMaster.trainFromTiming}">
+									</div>
+									<div class="col-3">
+										<label for="trainToTime" class="col-form-label">Train
+											To Time</label>
+									</div>
+									<div class="col-3">
+										<input type="text" id="trainToTime" class="form-control"
+											name="trainToTime" th:value="${trainMaster.trainToTime}">
+									</div>
+								</div>
+								
+								</div>
+								<div class="text-center pt-3">
+									<button Type="Submit" class="btn btn-success">Submit</button>
+									
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+</section>
+</body>
+</html>
